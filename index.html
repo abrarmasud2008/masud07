@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0714">
+  <meta name="description" content="Masud's personal website. Student, Creator and technology enthusiast.">
+  <title>Masud | Personal Space</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0b0714;
+      --card: #151020;
+      --purple: #a855f7;
+      --light-purple: #d8b4fe;
+      --text: #f8f5ff;
+      --muted: #b6a9c9;
+      --border: #38234f;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(ellipse at top, #25113b 0%, var(--bg) 55%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(100% - 32px, 760px);
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      gap: 12px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand span {
+      color: var(--purple);
+    }
+
+    .nav-link {
+      color: var(--light-purple);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 45px 20px 35px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: linear-gradient(
+        145deg,
+        rgba(46, 23, 67, .88),
+        rgba(15, 10, 25, .95)
+      );
+      box-shadow: 0 20px 70px #0005;
+    }
+
+    .profile {
+      width: 125px;
+      height: 125px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      border: 3px solid var(--purple);
+      object-fit: cover;
+      background: #241533;
+      display: block;
+      box-shadow: 0 0 30px #a855f755;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #6b3992;
+      color: var(--light-purple);
+      border-radius: 30px;
+      padding: 5px 14px;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(35px, 8vw, 53px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    h1 span {
+      color: var(--light-purple);
+    }
+
+    .subtitle {
+      color: var(--light-purple);
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .intro {
+      color: var(--muted);
+      max-width: 430px;
+      margin: 0 auto 23px;
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 21px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      background: var(--purple);
+      color: white;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: #9333ea;
+      transform: translateY(-2px);
+    }
+
+    section.content {
+      margin-top: 35px;
+    }
+
+    .section-title {
+      font-size: 21px;
+      margin-bottom: 17px;
+    }
+
+    .section-title span {
+      color: var(--purple);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      padding: 16px 13px;
+      text-decoration: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      transition: .2s;
+    }
+
+    .social-card:hover {
+      border-color: var(--purple);
+      background: #21132f;
+      transform: translateY(-3px);
+    }
+
+    .social-icon {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #2b1a3c;
+      font-size: 21px;
+    }
+
+    .social-card strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .social-card small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    .about-card {
+      padding: 22px;
+      border-radius: 17px;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .about-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 17px;
+    }
+
+    .skill {
+      font-size: 12px;
+      padding: 7px 12px;
+      border-radius: 20px;
+      background: #29183a;
+      color: var(--light-purple);
+    }
+
+    .contact {
+      text-align: center;
+      padding: 25px 18px;
+      border-radius: 18px;
+      background: linear-gradient(120deg, #28123c, #151020);
+      border: 1px solid var(--border);
+    }
+
+    .contact p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 8px 0 18px;
+    }
+
+    footer {
+      text-align: center;
+      color: #887b9c;
+      padding: 30px 0;
+      font-size: 12px;
+    }
+
+    @media (max-width: 390px) {
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 35px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <nav>
+      <div class="brand">MASUD<span>.</span></div>
+      <a class="nav-link" href="#about">About Me ↗</a>
+    </nav>
+
+    <header class="hero">
+      <!-- নিজের ছবির ফাইলের নাম profile.jpg রাখবে -->
+      <img
+        class="profile"
+        src="profile.jpg"
+        alt="Masud's profile photo"
+        onerror="this.style.display='none'"
+      >
+
+      <div class="tag">✦ MY PERSONAL SPACE</div>
+
+      <h1>Hello, I'm <span>Masud.</span></h1>
+
+      <p class="subtitle">Student &amp; Creator</p>
+
+      <p class="intro">
+        Welcome to my digital world.
+        Explore my interests, discover my work,
+        and connect with me through my social profiles.
+      </p>
+
+      <a class="button" href="#connect">Let's Connect ↗</a>
+    </header>
+
+    <section class="content" id="connect">
+      <h2 class="section-title">
+        Connect <span>With Me.</span>
+      </h2>
+
+      <div class="social-grid">
+
+        <a class="social-card"
+           href="https://www.facebook.com/"
+           target="_blank" rel="noopener noreferrer">
+          <div class="social-icon">ⓕ</div>
+          <div>
+            <strong>Facebook</strong>
+            <small>Visit my profile ↗</small>
+          </div>
+        </a>
+
+        <a class="social-card"
+           href="https://www.instagram.com/"
+           target="_blank" rel="noopener noreferrer">
+          <div class="social-icon">◎</div>
+          <div>
+            <strong>Instagram</strong>
+            <small>Photos &amp; updates ↗</small>
+          </div>
+        </a>
+
+        <!-- এখানে নিজের WhatsApp link বসাবে -->
+        <a class="social-card"
+           href="#"
+           id="whatsappLink">
+          <div class="social-icon">☏</div>
+          <div>
+            <strong>WhatsApp</strong>
+            <small>Message me ↗</small>
+          </div>
+        </a>
+
+        <a class="social-card"
+           href="https://www.linkedin.com/"
+           target="_blank" rel="noopener noreferrer">
+          <div class="social-icon">in</div>
+          <div>
+            <strong>LinkedIn</strong>
+            <small>Professional profile ↗</small>
+          </div>
+        </a>
+
+        <a class="social-card"
+           href="https://signal.me/"
+           target="_blank" rel="noopener noreferrer">
+          <div class="social-icon">➤</div>
+          <div>
+            <strong>Signal</strong>
+            <small>Connect with me ↗</small>
+          </div>
+        </a>
+
+        <a class="social-card"
+           href="mailto:YOUR_EMAIL@gmail.com">
+          <div class="social-icon">✉</div>
+          <div>
+            <strong>Gmail</strong>
+            <small>Send an email ↗</small>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="content" id="about">
+      <h2 class="section-title">About <span>Me.</span></h2>
+
+      <div class="about-card">
+        <p>
+          Hi! I'm Masud, a student and creator who enjoys
+          learning new things, exploring technology,
+          and developing new skills. This is my personal
+          corner of the internet.
+        </p>
+
+        <div class="skills">
+          <span class="skill">📚 Student</span>
+          <span class="skill">💻 Technology</span>
+          <span class="skill">✨ Creator</span>
+          <span class="skill">🚀 Personal Growth</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="contact">
+        <h2>Let's <span>Connect.</span></h2>
+        <p>
+          Have something to share? Reach out through
+          my social media profiles.
+        </p>
+        <a class="button" href="#connect">Find Me Online ↗</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Masud.
+      Made with care. All rights reserved.
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    /*
+      নিজের আসল social profile links বসানোর পর
+      এখানে WhatsApp-এর link যোগ করবে।
+    */
+    const whatsappLink = "";
+
+    const whatsappButton =
+      document.getElementById("whatsappLink");
+
+    if (whatsappLink.startsWith("https://")) {
+      whatsappButton.href = whatsappLink;
+      whatsappButton.target = "_blank";
+      whatsappButton.rel = "noopener noreferrer";
+    } else {
+      whatsappButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        alert("WhatsApp link has not been added yet.");
+      });
+    }
+  </script>
+</body>
+</html>
